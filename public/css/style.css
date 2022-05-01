@@ -5,7 +5,7 @@
 }
 
 body{
-    width: 100%;
+    width: 97.5%;
     position: relative;
     background: #181818;
     font-family: 'roboto', sans-serif;
@@ -21,6 +21,7 @@ body{
     padding: 0 2.5vw;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .logo{
@@ -64,6 +65,11 @@ body{
     width: 100%;
     padding: 40px 2.5vw;
     color: #fff;
+    margin-top: 70px;
+    margin-left: 13px;
+    background-image: url(https://miro.medium.com/max/1400/1*5lyavS59mazOFnb55Z6znQ.png);
+    background-position: cover;
+    background-repeat: no-repeat;
     
 
 }
@@ -79,20 +85,14 @@ body{
     font-size: 20px;
     margin-top: 10px;
 }
-.background
-{
-    
-    
-    background-image: url(https://miro.medium.com/max/1400/1*5lyavS59mazOFnb55Z6znQ.png);
-      background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+
 .movie-list{
     width: 100%;
     height: 250px;
     margin-top: 40px;
-    margin-left: 30px;
+    
+   
+    margin-left: 13px;
     
     position: relative;
 }
@@ -103,6 +103,7 @@ body{
     margin-bottom: 20px;
     color: #fff;
     text-transform: capitalize;
+    margin-left: 30px;
 }
 
 .movie-container{
@@ -121,13 +122,14 @@ body{
 
 .movie{
     flex: 0 0 auto;
-    width: 75%;
+    width: 100%;
     height: 200px;
     text-align: center;
     margin-right: 10px;
     cursor: pointer;
     position: relative;
     display: flex;
+    margin-left: 30px;
 }
 .mov2
 {
@@ -185,4 +187,16 @@ body{
 .nxt-btn:hover,
 .pre-btn:hover{
     opacity: 1;
+}
+.container{
+    height: 700px;
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 30px;
+    background-image: url(https://static-koimoi.akamaized.net/wp-content/new-galleries/2019/12/kgf-chapter-2-first-look-out-yash-takes-the-story-forward-on-his-shoulders-literally-001.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+    
 }
