@@ -59,6 +59,7 @@ const makeCards = (id, data) => {
     <img src="${img_url}${item.backdrop_path}" alt="">
     <p class="movie-title">${item.title}</p>
 </div>
+
 `;
 if(i == data.length - 1){
     setTimeout(() => {
