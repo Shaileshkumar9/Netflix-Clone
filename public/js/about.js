@@ -57,7 +57,7 @@ fetch(`${movie_detail_http}${movie_id}/credits?` + new URLSearchParams({
 })
 
 
-//fetching video clips
+// fetching video clips
 
 fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
     api_key: api_key

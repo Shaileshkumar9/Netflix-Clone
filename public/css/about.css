@@ -44,6 +44,7 @@
     
 }
 
+
 .heading{
     font-size: 30px;
     font-weight: 300;
@@ -75,4 +76,6 @@ iframe{
 .movie:hover p{
     opacity: 1;
 }
+
+
 
