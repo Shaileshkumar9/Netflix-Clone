@@ -99,7 +99,7 @@ body{
 }
 .container .title .content form .email{
     width: 1000px;
-    margin: auto;
+    margin:auto;
 }
 .container .title .content form .email input{
     height: 60px;

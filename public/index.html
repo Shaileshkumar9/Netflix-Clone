@@ -31,12 +31,87 @@
                 <form action="#">
                     <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
                     <div class="email">
-                        <input type="email" name="email" placeholder="Email address">
-                        <button><a href="#">Get Started  ></a></button>
+                        <input type="email" name="email" id="email" placeholder="Email address" required>
+                        <button style="opacity: 0;"><a href="#">Get Started  ></a></button>
+                    </div>
+                    <div class="email" style="margin-top: 10px;">
+                        <input type="password" name="password" id="pass" placeholder="Password" required>
+                        <button type="button" id="submitData" name="submitData">Get Started</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+        import { getDatabase ,set,ref} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCmZKV42TBfO7hmIGaUBdv68v1vTwuG_y8",
+          authDomain: "netflix-clone-159fa.firebaseapp.com",
+          projectId: "netflix-clone-159fa",
+          storageBucket: "netflix-clone-159fa.appspot.com",
+          messagingSenderId: "563858029241",
+          appId: "1:563858029241:web:dcd2f4854a4c89a17bb968"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+   
+
+        submitData.addEventListener('click', (e) => {
+
+var email = document.getElementById('email').value;
+var password = document.getElementById('pass').value;
+
+//sign up user
+createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ... user.uid
+        set(ref(database, 'users/' + user.uid), {
+    email: email,
+    password: password
+    
+  })
+  .then(() => {
+    alert('user created successfully');
+    window.location.href = "signIn.html";
+  // Data saved successfully!
+})
+.catch((error) => {
+  // The write failed...
+  alert(error);
+});
+         
+                
+
+            })
+            .catch((error) => {
+                // The write failed...
+                alert(error);
+            });
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        alert(errorMessage);
+    });
+
+
+      </script>
+
+
 </body>
 </html>
