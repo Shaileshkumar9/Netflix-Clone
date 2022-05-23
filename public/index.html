@@ -74,17 +74,17 @@
               var email = document.getElementById('email').value;
                var password = document.getElementById('pass').value;
                
-               if(email==="" )
+               if(email==="" && password ==="" )
                {
-                   alert('please fill out email');
+                   alert('Please fill out Email and Password');
                }
                else if(password==="")
                {
-                   alert('Plese fill out password')
+                   alert('Plese fill out Password')
                }
                else if(password.length<6 && password!=="")
                {
-                   alert('Password must be contain at least 6 characters');
+                   alert('Password must be contain at least 6 Characters');
                }
                else
                {
