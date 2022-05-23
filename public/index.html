@@ -66,32 +66,55 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
         const database = getDatabase(app);
+        
    
 
         submitData.addEventListener('click', (e) => {
 
-var email = document.getElementById('email').value;
-var password = document.getElementById('pass').value;
+              var email = document.getElementById('email').value;
+               var password = document.getElementById('pass').value;
+               
+               if(email==="" )
+               {
+                   alert('please fill out email');
+               }
+               else if(password==="")
+               {
+                   alert('Plese fill out password')
+               }
+               else if(password.length<6 && password!=="")
+               {
+                   alert('Password must be contain at least 6 characters');
+               }
+               else
+               {
+                   
+               
+
+
+
+
 
 //sign up user
-createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+              createUserWithEmailAndPassword(auth, email, password)
+                 .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+                   const user = userCredential.user;
         // ... user.uid
-        set(ref(database, 'users/' + user.uid), {
-    email: email,
-    password: password
+                 set(ref(database, 'users/' + user.uid), {
+                email: email,
+                password: password
     
   })
-  .then(() => {
-    alert('user created successfully');
-    window.location.href = "signIn.html";
+               .then(() => {
+               //  alert('user created successfully');
+                 window.location.href = "signIn.html";
   // Data saved successfully!
 })
 .catch((error) => {
   // The write failed...
-  alert(error);
+ // alert(error);
+ alert('invalid');
 });
          
                 
@@ -99,16 +122,21 @@ createUserWithEmailAndPassword(auth, email, password)
             })
             .catch((error) => {
                 // The write failed...
-                alert(error);
+               // alert(error);
+               alert('Email is not valid')
             });
+        }
     })
-    .catch((error) => {
+
+    /*.catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
         alert(errorMessage);
-    });
+    });*/
 
+
+        
 
       </script>
 
