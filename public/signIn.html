@@ -22,6 +22,7 @@
     <input class="login__group__input" type="password" id="pass" required="true"/>
     <label class="login__group__label">Password</label>
   </div>
+  <p id="error" style="margin-top: 0px; color: red; padding-top: 0px; opacity: 0;"></p>
   <button class="login__sign-in" type="button" id="submitData" name="submitData">Sign In </button>
   <div class="login__secondary-cta"><a class="login__secondary-cta__text" href="#">Remember me</a><a class="login__secondary-cta__text login__secondary-cta__text--need-help" href="#">Need help?</a></div>
   <div class="new"> New to Netflix?<a href="index.html" style="margin-left: 10px; text-decoration: none; color: white;">Sign up now</a></div>
@@ -58,7 +59,21 @@
 
 var email = document.getElementById('email').value;
 var password = document.getElementById('pass').value;
-
+document.getElementById("error").style="opacity:0;"
+     
+              if(email==="" && password ==="" )
+               {
+                document.getElementById("error").innerHTML="Please fill out Email and Password";
+                document.getElementById("error").style="opacity:1; color: red;"
+               }
+               else if(password==="")
+               {
+                document.getElementById("error").innerHTML="Plese fill out Password";
+                document.getElementById("error").style="opacity:1; color: red;"
+               }
+               else
+               {
+              
 
 
 signInWithEmailAndPassword(auth, email, password)
@@ -72,13 +87,14 @@ signInWithEmailAndPassword(auth, email, password)
     
   })
   .then(() => {
-    alert('user logged in successfully');
+    //alert('user logged in successfully');
     window.location.href = "mainpage.html";
   // Data saved successfully!
 })
 .catch((error) => {
   // The write failed...
   alert(error);
+  
 });
 
 
@@ -86,9 +102,14 @@ signInWithEmailAndPassword(auth, email, password)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    alert(errorMessage);
+   // alert(errorMessage);
+   document.getElementById("error").innerHTML="Username and Password is incorrect!!";
+   
+   document.getElementById("error").style="opacity:1; color: red;"
+  // alert('Username and Password is not valid');
     // ..
   });
+}
 
 });
 
